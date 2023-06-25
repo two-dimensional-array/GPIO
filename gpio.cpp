@@ -1,5 +1,6 @@
 #include "gpio.hpp"
 
+#ifdef GPIO_USE_CPP_STYLE
 const bool SGPIO::Read()
 {
 	return GPIORead(this);
@@ -9,18 +10,19 @@ const void SGPIO::Write(bool state)
 {
 	GPIOWrite(this, state);
 }
+#endif
 
-bool GPIORead(SGPIO* pGPIO)
+bool GPIORead(gpio_t* pGPIO)
 {
 	return GPIO_READ(pGPIO);
 }
 
-void GPIOWrite(SGPIO* pGPIO, bool state)
+void GPIOWrite(gpio_t* pGPIO, bool state)
 {
 	GPIO_WRITE(pGPIO, state);
 }
 
-gpio_pin_t GPIOReadArray(SGPIO* pGPIOArray, size_t size)
+gpio_pin_t GPIOReadArray(gpio_t* pGPIOArray, size_t size)
 {
 	gpio_pin_t value;
 
@@ -32,7 +34,7 @@ gpio_pin_t GPIOReadArray(SGPIO* pGPIOArray, size_t size)
 	return value;
 }
 
-void GPIOWriteArray(SGPIO* pGPIOArray, size_t size, gpio_pin_t value)
+void GPIOWriteArray(gpio_t* pGPIOArray, size_t size, gpio_pin_t value)
 {
 	for (size_t i = 0; i < size; i++)
 	{

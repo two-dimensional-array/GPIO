@@ -3,6 +3,8 @@
 // place to include GPIO hw header
 #include <stm32f4xx.h>
 
+//#define GPIO_USE_CPP_STYLE // uncomment this string for using c++ style
+
 #define GPIO_PORT_TYPE GPIO_TypeDef
 #define GPIO_PIN_TYPE  uint16_t
 
