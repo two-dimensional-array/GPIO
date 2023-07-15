@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+#Custom configuration
+gpio_config.hpp
